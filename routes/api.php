@@ -33,25 +33,25 @@ Route::group([
 Route::group(['middleware' => 'auth'], function (){
 
     Route::group(['middleware' => 'teacher', 'prefix' => 'question'], function (){
-        Route::get('/', [QuestionController::class, 'index']);
+        Route::get('/{test_id}', [QuestionController::class, 'index']);
         Route::post('/', [QuestionController::class, 'store']);
-        Route::delete('/{quesion_id}', [QuestionController::class, 'destroy']);
-        Route::post('/{question_id}', [QuestionController::class, 'update']);
+        Route::delete('/{quesion}', [QuestionController::class, 'destroy']);
+        Route::post('/{question}', [QuestionController::class, 'update']);
     });
 
 
     Route::group(['middleware' => 'teacher', 'prefix' => 'answer'], function (){
         Route::get('/', [AnswerController::class, 'index']);
         Route::post('/', [AnswerController::class, 'store']);
-        Route::delete('/{answer_id}', [AnswerController::class, 'destroy']);
-        Route::post('/{answer_id}', [AnswerController::class, 'update']);
+        Route::delete('/{answer}', [AnswerController::class, 'destroy']);
+        Route::post('/{answer}', [AnswerController::class, 'update']);
     });
 
     Route::group(['middleware' => 'teacher', 'prefix' => 'test'], function (){
         Route::get('/', [TestController::class, 'index']);
         Route::post('/', [TestController::class, 'store']);
-        Route::delete('/{test_id}', [TestController::class, 'destroy']);
-        Route::post('/{test_id}', [TestController::class, 'update']);
+        Route::delete('/{test}', [TestController::class, 'destroy']);
+        Route::post('/{test}', [TestController::class, 'update']);
     });
 });
 

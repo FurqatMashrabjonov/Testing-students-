@@ -13,8 +13,8 @@ class DatabaseSeeder extends Seeder
     {
         \App\User::query()->create([
             'name' => 'Furqat Mashrabjonov',
-            'email' => 'php_lesson@mail.ru',
-            'password' => bcrypt('willywilliam')
+            'email' => 'teacher@mail.ru',
+            'password' => bcrypt('teacher12345')
         ]);
     }
 }
